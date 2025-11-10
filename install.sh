@@ -65,6 +65,8 @@ if [ ! -f ".env" ]; then
         echo "📝 Created .env from template."
     else
         echo "⚠️ No .env or .env.example found. Please create one manually."
+        echo "❌ Exiting setup — environment file is required."
+        exit 1
     fi
 fi
 
