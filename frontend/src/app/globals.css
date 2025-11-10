@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	:root {
+		--background: 216.9 34.2% 14.9%; /* #192333 */
+		--background-dark: 218.4 38.5% 12.7%; /* #141d2d */
+		--foreground: 0 0% 100%; /* #ffffff */
+
+		--primary: 217.2 91.2% 59.8%; /* #3b82f6 */
+		--primary-light: 213.1 93.9% 67.8%; /* #60a5fa */
+		--primary-dark: 271.5 81.3% 55.9%; /* #9333ea */
+		--primary-foreground: 0 0% 100%; /* #ffffff */
+
+		--success: 142.1 70.6% 45.3%; /* #22c55e */
+		--success-dark: 142.4 71.8% 29.2%; /* #15803d */
+		--success-foreground: 0 0% 100%; /* #ffffff */
+
+		--warn: 47.9 95.8% 53.1%; /* #facc15 */
+		--warn-dark: 40.6 96.1% 40.4%; /* #ca8a04 */
+		--warn-foreground: 0 0% 100%; /* #ffffff */
+
+		--destructive: 0 84.2% 60.2%; /* #ef4444 */
+		--destructive-dark: 0 73.7% 41.8%; /* #b91c1c */
+		--destructive-foreground: 0 0% 100%; /* #ffffff */
+
+		--muted: 217.9 10.6% 64.9%; /* #9ca3af */
+		--muted-dark: 217.9 10.6% 50%; /* #727c8d */
+		--muted-foreground: 220 13% 91%; /* #e5e7eb */
+
+		--card: 216.9 34.2% 14.9%; /* #192333 */
+		--card-foreground: 0 0% 100%; /* #ffffff */
+
+		--light: 0 0% 100%; /* #ffffff */
+		--dark: 220 41.4% 11.4%; /* #111929 */
+		--border: 216.9 19.1% 26.7%; /* #374151 */
+		--input: 215 27.9% 16.9%; /* #1f2937 */
+		--ring: 217.9 10.6% 64.9%; /* #9ca3af */
+		--scrollbar: 217.2 91.2% 59.8%; /* #3b82f6 */
+
+		--popover: 224 71.4% 4.1%;
+		--popover-foreground: 210 20% 98%;
+
+		--secondary: 215 27.9% 16.9%;
+		--secondary-foreground: 210 20% 98%;
+
+		--accent: 215 27.9% 16.9%;
+		--accent-foreground: 210 20% 98%;
+
+		--radius: 0.5rem;
+
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+
+	.dark {
+		--background: 216.9 34.2% 14.9%; /* #192333 */
+		--background-dark: 218.4 38.5% 12.7%; /* #141d2d */
+		--foreground: 0 0% 100%; /* #ffffff */
+
+		--primary: 217.2 91.2% 59.8%; /* #3b82f6 */
+		--primary-light: 213.1 93.9% 67.8%; /* #60a5fa */
+		--primary-dark: 271.5 81.3% 55.9%; /* #9333ea */
+		--primary-foreground: 0 0% 100%; /* #ffffff */
+
+		--success: 142.1 70.6% 45.3%; /* #22c55e */
+		--success-dark: 142.4 71.8% 29.2%; /* #15803d */
+		--success-foreground: 0 0% 100%; /* #ffffff */
+
+		--warn: 47.9 95.8% 53.1%; /* #facc15 */
+		--warn-dark: 40.6 96.1% 40.4%; /* #ca8a04 */
+		--warn-foreground: 0 0% 100%; /* #ffffff */
+
+		--destructive: 0 84.2% 60.2%; /* #ef4444 */
+		--destructive-dark: 0 73.7% 41.8%; /* #b91c1c */
+		--destructive-foreground: 0 0% 100%; /* #ffffff */
+
+		--muted: 217.9 10.6% 64.9%; /* #9ca3af */
+		--muted-dark: 217.9 10.6% 50%; /* #727c8d */
+		--muted-foreground: 220 13% 91%; /* #e5e7eb */
+
+		--card: 216.9 34.2% 14.9%; /* #192333 */
+		--card-foreground: 0 0% 100%; /* #ffffff */
+
+		--light: 0 0% 100%; /* #ffffff */
+		--dark: 220 41.4% 11.4%; /* #111929 */
+		--border: 216.9 19.1% 26.7%; /* #374151 */
+		--input: 215 27.9% 16.9%; /* #1f2937 */
+		--ring: 217.9 10.6% 64.9%; /* #9ca3af */
+		--scrollbar: 217.2 91.2% 59.8%; /* #3b82f6 */
+
+		--popover: 224 71.4% 4.1%;
+		--popover-foreground: 210 20% 98%;
+
+		--secondary: 215 27.9% 16.9%;
+		--secondary-foreground: 210 20% 98%;
+
+		--accent: 215 27.9% 16.9%;
+		--accent-foreground: 210 20% 98%;
+
+		--radius: 0.5rem;
+
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
+
+@layer base {
+	* {
+		@apply border-border font-poppins;
+	}
+
+	body {
+		@apply bg-background text-foreground;
+	}
+
+	h1 {
+		@apply text-3xl font-extrabold tablet:text-4xl laptop:text-5xl;
+	}
+
+	h2 {
+		@apply text-2xl font-bold tablet:text-3xl;
+	}
+
+	h3 {
+		@apply text-xl font-semibold tablet:text-2xl;
+	}
+
+	h4 {
+		@apply text-lg font-semibold tablet:text-xl;
+	}
+
+	h5 {
+		@apply text-base font-medium tablet:text-lg;
+	}
+
+	input[type='number'] {
+		appearance: textfield;
+	}
+
+	input::-ms-reveal,
+	input::-ms-clear {
+		display: none;
+	}
+
+	::-webkit-file-upload-button {
+		display: none;
+	}
+
+	::-webkit-scrollbar {
+		@apply size-0.5;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-scrollbar;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-scrollbar;
+	}
+
+	/* Selection */
+	::selection {
+		-webkit-text-fill-color: #ffffff;
+		@apply bg-primary text-light;
+	}
+}
+
+@layer utilities {
+	/* Container */
+	.large-padding-modal {
+		@apply py-3 tablet:px-4 tablet:py-6 laptop:px-10 laptop:py-8;
+	}
+
+	.small-padding-modal {
+		@apply py-1 tablet:px-2 tablet:py-2 laptop:px-4 laptop:py-3;
+	}
+
+	/* Gradient */
+	.gradient-primary {
+		@apply bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700;
+	}
+
+	.gradient-primary-light {
+		@apply bg-gradient-to-r from-blue-400 to-purple-500;
+	}
+
+	.gradient-dark {
+		@apply bg-gradient-to-br from-gray-800 to-gray-900;
+	}
+
+	.gradient-blue-red {
+		@apply bg-gradient-to-br from-blue-500/70 to-red-500/70 hover:from-blue-400 hover:to-red-400;
+	}
+
+	/* Input */
+	.input {
+		@apply border-2 disabled:bg-muted disabled:text-muted;
+	}
+
+	.input-default {
+		@apply border-border focus:border-primary;
+	}
+
+	.input-error {
+		@apply border-destructive focus:border-destructive;
+	}
+
+	.input-success {
+		@apply border-success focus:border-success;
+	}
+
+	/* Input Label */
+	.input-label {
+		@apply cursor-pointer text-sm;
+	}
+
+	/* Input Message */
+	.input-message {
+		@apply text-xs;
+	}
+
+	.input-error-message {
+		@apply text-destructive;
+	}
+
+	.input-success-message {
+		@apply text-success;
+	}
+
+	/* Scrollbar */
+	.no-scrollbar::-webkit-scrollbar {
+		display: none;
+	}
+
+	.no-scrollbar {
+		-ms-overflow-style: none;
+		scrollbar-width: none;
+	}
+
+	.multi-select .multi-select__control {
+		@apply cursor-pointer rounded-md border-2 border-border bg-background shadow-none;
+	}
+
+	.multi-select .multi-select__value-container {
+		@apply pl-1;
+	}
+
+	.multi-select .multi-select__menu {
+		@apply bg-transparent;
+	}
+
+	.multi-select .multi-select__menu-list {
+		@apply cursor-pointer rounded-lg border-2 border-border bg-background p-1;
+	}
+
+	.multi-select .multi-select__option {
+		@apply cursor-pointer;
+	}
+
+	.multi-select .multi-select__option--is-focused {
+		@apply bg-primary/20;
+	}
+
+	.multi-select .multi-select__multi-value {
+		@apply bg-primary/20;
+	}
+
+	.multi-select .multi-select__multi-value__label {
+		@apply text-foreground;
+	}
+}
+
+pre {
+	@apply rounded-lg text-sm;
+}

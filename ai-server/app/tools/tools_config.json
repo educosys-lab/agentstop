@@ -1,0 +1,92 @@
+{
+	"airbnb-tool": {
+		"command": "npx",
+		"args": ["-y", "@openbnb/mcp-server-airbnb", "--ignore-robots-txt"],
+		"transport": "stdio"
+	},
+	"airtable-tool": {
+		"command": "npx",
+		"args": ["-y", "airtable-mcp-server"],
+		"transport": "stdio"
+	},
+	"analytics-tool": {
+		"command": "python",
+		"args": ["app/tools/whatsapp/analytics.py"],
+		"transport": "stdio"
+	},
+	"discord-tool": {
+		"command": "python",
+		"args": ["app/tools/discord/tool.py"],
+		"transport": "stdio"
+	},
+	"firecrawl-tool": {
+		"command": "npx",
+		"args": ["-y", "firecrawl-mcp"],
+		"transport": "stdio"
+	},
+	"github-tool": {
+		"command": "npx",
+		"args": ["-y", "@modelcontextprotocol/server-github"],
+		"transport": "stdio"
+	},
+	"google-sheets-tool": {
+		"command": "python",
+		"args": ["app/tools/google-sheets/tool.py"],
+		"transport": "stdio"
+	},
+	"linkedin-tool": {
+		"command": "python",
+		"args": ["app/tools/linkedin/tool.py"],
+		"transport": "stdio"
+	},
+	"mongodb-tool": {
+		"command": "npx",
+		"args": ["-y", "mongodb-mcp-server"],
+		"transport": "stdio"
+	},
+	"notion-tool": {
+		"command": "npx",
+		"args": ["-y", "@notionhq/notion-mcp-server"],
+		"transport": "stdio"
+	},
+	"pinecone-tool": {
+		"command": "npx",
+		"args": ["-y", "@pinecone-database/mcp"],
+		"transport": "stdio"
+	},
+	"quickchart-tool": {
+		"command": "python",
+		"args": ["app/tools/quickchart/tool.py"],
+		"transport": "stdio"
+	},
+	"reddit-tool": {
+		"command": "python",
+		"args": ["app/tools/reddit/tool.py"],
+		"transport": "stdio"
+	},
+	"redis-tool": {
+		"command": "uv",
+		"args": ["--directory", "app/tools/redis", "run", "src/main.py"],
+		"transport": "stdio"
+	},
+	"slack-tool": {
+		"command": "npx",
+		"args": ["-y", "@modelcontextprotocol/server-slack"],
+		"transport": "stdio"
+	},
+	"supabase-tool": {
+		"command": "npx",
+		"args": ["-y", "@supabase/mcp-server-supabase@latest"],
+		"transport": "stdio"
+	},
+	"tavily-tool": {
+		"command": "npx",
+		"args": ["-y", "tavily-mcp@0.1.4"],
+		"transport": "stdio"
+	},
+	"whatsapp-tool": {
+		"command": "python",
+		"args": ["app/tools/whatsapp/tool.py"],
+		"transport": "stdio"
+	}
+}

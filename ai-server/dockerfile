@@ -1,0 +1,29 @@
+# Description: Dockerfile for the project
+FROM python:3.13.4-slim AS base
+# Set the working directory
+WORKDIR /src
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    curl \
+    gnupg \
+    ca-certificates \
+    bash && \
+    curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    curl -sSL https://install.python-poetry.org | python3 - && \
+    ln -s /root/.local/bin/poetry /usr/local/bin/poetry
+# Ensure Poetry uses local venv inside project
+RUN poetry config virtualenvs.in-project true
+# Copy requirements
+COPY . .
+# Install dependencies via Poetry
+RUN poetry install
+RUN pip install uv
+# Set environment
+ENV PYTHONUNBUFFERED=1
+ENV ENV=local
+# Expose port
+EXPOSE 8000
+# Run app
+CMD ["make", "start-local"]

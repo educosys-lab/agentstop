@@ -1,0 +1,15 @@
+.tiptap.ProseMirror {
+	@apply size-full;
+}
+
+.tiptap.ProseMirror.ProseMirror-focused {
+	@apply outline-none;
+}
+
+.tiptap.ProseMirror [data-type='taskList'] li {
+	@apply flex list-none gap-2;
+}
+
+.tiptap.ProseMirror ul {
+	@apply list-disc;
+}

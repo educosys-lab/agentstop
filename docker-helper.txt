@@ -1,0 +1,14 @@
+# Build the whole system
+docker compose build
+
+# Build specific service
+docker compose build backend
+
+# Force Rebuild (ignore cache)
+docker compose build --no-cache
+
+# Force Rebuild (ignore cache) for specific service
+docker compose build --no-cache backend
+
+# Create and run
+docker compose up -d --build

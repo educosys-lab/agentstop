@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "agentstop-be-python"
+version = "0.1.0"
+description = ""
+authors = ["Agentstop <agentstopdev@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.dependencies]
+dotenv = "^0.9.9"
+fastapi = {extras = ["standard"], version = "^0.116.1"}
+google-api-python-client = "^2.177.0"
+langchain = "^0.3.27"
+langchain-google-genai = "^2.1.8"
+langchain-mcp-adapters = "^0.1.9"
+langchain-openai = "^0.3.28"
+langgraph = ">=0.6.0,<0.7.0"
+langgraph-checkpoint-redis = "^0.0.8"
+mcp = {extras = ["cli"], version = "^1.12.2"}
+motor = "^3.7.1"
+numpy = "^2.3.2"
+pandas = "^2.3.1"
+pydantic-settings = "^2.10.1"
+pymongo = "^4.13.2"
+python = ">=3.13,<3.14"
+redis = "^6.2.0"
+flask = "^3.1.1"
+langgraph-supervisor = "^0.0.29"
+openpyxl = "^3.1.5"
+black = "^25.1.0"
+isort = "^6.0.1"
+langchain-groq = "^0.3.7"
+langchain-anthropic = "^0.3.19"
+apify-client = "^2.0.0"
+langchain-pinecone = "^0.2.12"
+tiktoken = "^0.11.0"
+pinecone = "^7.3.0"
+firecrawl-py = "^4.3.3"
+pymupdf = "^1.26.4"
+python-docx = "^1.2.0"
+python-pptx = "^1.0.2"
+docx2txt = "^0.9"
+ratelimit = "^2.2.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+flake8 = "^7.3.0"
+
+[tool.black]
+line-length = 120
+
+[tool.isort]
+profile = "black"

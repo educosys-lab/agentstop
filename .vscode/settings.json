@@ -1,0 +1,30 @@
+{
+	"explorer.excludeGitIgnore": false,
+	"files.watcherExclude": {
+		"**/.git/objects/**": true,
+		"**/.git/subtree-cache/**": true,
+		"**/.hg/store/**": true,
+		"**/.git/**": true,
+		"**/.next/**": true,
+		"**/.vscode/**": true,
+		"**/__pycache__/**": true,
+		"**/build/**": true,
+		"**/dist/**": true,
+		"**/node_modules/**": true,
+		"**/out/**": true,
+		"**/pnpm-lock.yaml": true
+	},
+	"search.exclude": {
+		"**/__pycache__": true,
+		"**/.git": true,
+		"**/.hg": true,
+		"**/.next": true,
+		"**/.vscode": true,
+		"**/.venv": true,
+		"**/build": true,
+		"**/dist": true,
+		"**/out": true,
+		"**/pnpm-lock.yaml": true
+	},
+	"search.searchEditor.reusePriorSearchConfiguration": true
+}

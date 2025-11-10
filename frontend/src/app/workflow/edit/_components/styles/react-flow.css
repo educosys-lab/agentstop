@@ -1,0 +1,119 @@
+/* ===== Background ===== */
+.react-flow__background {
+	@apply bg-background;
+}
+
+/* ===== Node ===== */
+.react-flow__node {
+	/* @apply min-h-8 min-w-8 border-2 border-muted/25 transition-colors; */
+	@apply min-h-8 min-w-8;
+}
+
+.react-flow__node.draggable {
+	@apply cursor-move;
+}
+
+/* .react-flow__node.selectable:hover {
+	@apply border-2 border-primary-dark;
+} */
+
+/* .react-flow__node.selectable.selected {
+	@apply border-2 border-primary;
+} */
+
+.react-flow__node-group {
+	@apply border-2 border-warn bg-warn/25;
+}
+
+/* ===== Edge ===== */
+/* .react-flow__edges svg {
+	@apply !z-10;
+} */
+
+/* Interaction Path to make selection easier */
+.react-flow__edge-path.interaction {
+	@apply stroke-transparent stroke-[15px];
+}
+
+.react-flow__edge.animated .react-flow__edge-path.interaction {
+	@apply animate-none;
+
+	stroke-dasharray: none;
+}
+
+.react-flow__edge.selectable:hover .react-flow__edge-path.interaction {
+	@apply stroke-transparent;
+}
+
+.react-flow__edge.selectable.selected .react-flow__edge-path.interaction {
+	@apply stroke-transparent;
+}
+
+/* Actual Edge */
+.react-flow__edge-path {
+	@apply stroke-[2px];
+}
+
+.react-flow__edge.selectable:hover .react-flow__edge-path {
+	@apply stroke-primary-dark;
+}
+
+.react-flow__edge.selectable.selected .react-flow__edge-path {
+	@apply stroke-primary;
+}
+
+/* ===== Connection Handle ===== */
+.react-flow__node .react-flow__handle {
+	@apply min-h-0 min-w-0;
+}
+
+.react-flow__node
+	.react-flow__handle.source:is(
+		[data-handlepos='top'],
+		[data-handlepos='right'],
+		[data-handlepos='bottom'],
+		[data-handlepos='left']
+	) {
+	@apply after:absolute after:block after:size-1.5 after:rounded-full after:bg-white after:transition-all;
+}
+
+.react-flow__node.selectable:hover
+	.react-flow__handle.source:is(
+		[data-handlepos='top'],
+		[data-handlepos='right'],
+		[data-handlepos='bottom'],
+		[data-handlepos='left']
+	) {
+	@apply after:bg-primary-dark;
+}
+
+.react-flow__node .react-flow__handle.source[data-handlepos='top'] {
+	@apply after:-top-[3px] after:left-0 after:right-0 after:mx-auto;
+}
+.react-flow__node .react-flow__handle.source[data-handlepos='right'] {
+	@apply after:-right-[3px] after:bottom-0 after:top-0 after:my-auto;
+}
+.react-flow__node .react-flow__handle.source[data-handlepos='bottom'] {
+	@apply after:-bottom-[3px] after:left-0 after:right-0 after:mx-auto;
+}
+.react-flow__node .react-flow__handle.source[data-handlepos='left'] {
+	@apply after:-left-[3px] after:bottom-0 after:top-0 after:my-auto;
+}
+
+/* ===== Element Container ===== */
+.react-flow__node .elementContainer {
+	@apply border-transparent outline-transparent;
+}
+
+/* ===== React Flow Defaults ===== */
+.react-flow__panel.react-flow__attribution {
+	@apply hidden;
+}
+
+.react-flow__controls {
+	@apply border shadow-none;
+}
+
+.react-flow__controls button {
+	@apply bg-dark hover:bg-light hover:text-dark;
+}

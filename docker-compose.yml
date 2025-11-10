@@ -1,0 +1,102 @@
+services:
+    # ======================
+    # 🌐 FRONTEND (Next.js)
+    # ======================
+    frontend:
+        build:
+            context: ./frontend
+            dockerfile: dockerfile
+        container_name: agentstop-frontend
+        restart: always
+        ports:
+            - '5100:5100'
+        env_file:
+            - .env
+        depends_on:
+            - backend
+        command: pnpm start
+
+    # ======================
+    # 🧱 BACKEND (NestJS)
+    # ======================
+    backend:
+        build:
+            context: ./backend
+            dockerfile: dockerfile
+        container_name: agentstop-backend
+        restart: always
+        ports:
+            - '4100:4100'
+        env_file:
+            - .env
+        depends_on:
+            - mongo
+            - redis
+            - ai-server
+        volumes:
+            - ./uploads:/app/uploads
+            - ./backend/scripts/start-with-ngrok.sh:/app/start-with-ngrok.sh
+        command: sh /app/start-with-ngrok.sh
+
+    # ======================
+    # 🤖 AI SERVER (Python)
+    # ======================
+    ai-server:
+        build:
+            context: ./ai-server
+            dockerfile: dockerfile
+        container_name: agentstop-ai
+        restart: always
+        ports:
+            - '8000:8000'
+        env_file:
+            - .env
+        depends_on:
+            - mongo
+            - redis
+        volumes:
+            - ./.env:/app/.env
+        command: make start-local
+
+    # ======================
+    # 🍃 MongoDB
+    # ======================
+    mongo:
+        image: mongo:7
+        container_name: agentstop-mongo
+        restart: always
+        ports:
+            - '27017:27017'
+        volumes:
+            - mongo_data:/data/db
+
+    # ======================
+    # 🔴 Redis
+    # ======================
+    redis:
+        image: redis:7
+        container_name: agentstop-redis
+        restart: always
+        ports:
+            - '6379:6379'
+        volumes:
+            - redis_data:/data
+
+    # ======================
+    # 🔗 Ngrok
+    # ======================
+    ngrok:
+        image: ngrok/ngrok:latest
+        container_name: agentstop-ngrok
+        restart: always
+        depends_on:
+            - backend
+        environment:
+            NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+        command: http backend:4100 --region=in
+        ports:
+            - '4040:4040'
+
+volumes:
+    mongo_data:
+    redis_data:

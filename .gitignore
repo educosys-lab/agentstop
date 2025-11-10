@@ -1,0 +1,29 @@
+# Cursor
+.cursor
+
+# Dependencies & Cache
+__pycache__
+.venv
+node_modules
+
+# Logs
+logs
+
+# Output
+.next
+build
+dist
+out
+
+# Project
+pnpm-lock.yaml
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Vercel
+.vercel
+
+# Misc
+bash.exe.stackdump

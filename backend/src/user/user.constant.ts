@@ -1,0 +1,5 @@
+export const USER = {
+	USER_VERIFICATION_CODE_EXPIRATION: 10, // 10 minutes
+	USER_VERIFICATION_CODE_LENGTH: 6, // 6 digits
+	USER_FILE_COUNT: 5, // 5 files
+};

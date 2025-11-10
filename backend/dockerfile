@@ -1,0 +1,43 @@
+# Description: Dockerfile for the project
+FROM node:20.17.0-bullseye AS base
+# Install pnpm globally
+RUN npm install -g pnpm
+# Set the working directory
+WORKDIR /src
+# Copy the rest of the files
+COPY . .
+# Install dependencies
+RUN pnpm i
+# Build the project
+RUN pnpm build
+# Create the production image
+FROM node:20.17.0-bullseye AS builder
+# Install pnpm globally
+RUN npm install -g pnpm
+# Puppeteer dependencies for Alpine
+RUN apt-get update && apt-get install -y \
+    chromium \
+    ca-certificates \
+    fonts-liberation \
+    libnss3 \
+    libatk-bridge2.0-0 \
+    libx11-xcb1 \
+    libxcomposite1 \
+    libxdamage1 \
+    libxrandr2 \
+    libasound2 \
+    libatk1.0-0 \
+    libgtk-3-0 \
+    --no-install-recommends && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+# Set Puppeteer to use system-installed Chromium
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+# Copy the build files
+COPY --from=base /src/dist ./dist
+COPY --from=base /src/node_modules ./node_modules
+COPY --from=base /src/package.json ./package.json
+COPY --from=base /src/pnpm-lock.yaml ./pnpm-lock.yaml
+# Expose the port
+EXPOSE 4100
+# Start the server
+CMD ["pnpm", "start"]

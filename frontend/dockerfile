@@ -1,0 +1,26 @@
+# Description: Dockerfile for the project
+FROM node:20.17.0-alpine AS base
+# Install pnpm globally
+RUN npm install -g pnpm
+# Set the working directory
+WORKDIR /src
+# Copy the rest of the files
+COPY . .
+# Install dependencies
+RUN pnpm i
+# Build the project
+RUN pnpm build
+# Create the production image
+FROM node:20.17.0-alpine AS builder
+# Install pnpm globally
+RUN npm install -g pnpm
+# Copy the build files
+COPY --from=base /src/.next ./.next
+COPY --from=base /src/public ./public
+COPY --from=base /src/node_modules ./node_modules
+COPY --from=base /src/package.json ./package.json
+COPY --from=base /src/pnpm-lock.yaml ./pnpm-lock.yaml
+# Expose the port
+EXPOSE 5101
+# Start the server
+CMD ["pnpm", "start"]

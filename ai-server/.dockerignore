@@ -1,0 +1,23 @@
+# Dependencies & Cache
+.venv
+__pycache__
+
+# Docker
+.dockerignore
+dockerfile*
+
+# Env
+.env
+
+# Git
+.git
+.github
+.gitignore
+
+# Logs
+logs
+
+# Project
+.flake8
+.vscode
+README.md

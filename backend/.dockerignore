@@ -1,0 +1,25 @@
+# Dependencies
+node_modules
+
+# Docker
+.dockerignore
+dockerfile*
+
+# Env
+.env
+
+# Git
+.git
+.github
+.gitignore
+
+# Output
+build
+logs
+
+# Project
+.eslintrc.json
+.prettierrc
+.vscode
+pnpm-lock.yaml
+README.md
