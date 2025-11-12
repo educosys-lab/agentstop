@@ -34,7 +34,6 @@ services:
             - redis
             - ai-server
         volumes:
-            - ./uploads:/app/uploads
             - ./backend/scripts/start-with-ngrok.sh:/app/start-with-ngrok.sh
         command: sh /app/start-with-ngrok.sh
 
